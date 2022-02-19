@@ -1,0 +1,26 @@
+def retrofit = [:]
+retrofit.retrofit2 = "com.squareup.retrofit2:retrofit:2.9.0"
+retrofit.convertergson = "com.squareup.retrofit2:converter-gson:2.9.0"
+ext.retrofit = retrofit
+
+def androidx = [:]
+androidx.corektx = 'androidx.core:core-ktx:1.7.0'
+androidx.appcompat = 'androidx.appcompat:appcompat:1.4.1'
+androidx.constraintlayout = 'androidx.constraintlayout:constraintlayout:2.1.3'
+ext.androidx = androidx
+
+def google = [:]
+google.material = 'com.google.android.material:material:1.5.0'
+ext.google = google
+
+def hilt = [:]
+hilt.android = "com.google.dagger:hilt-android:2.40.5"
+hilt.androidCompiler = "com.google.dagger:hilt-android-compiler:2.40.5"
+hilt.androidTesting = "com.google.dagger:hilt-android-testing:2.40.5"
+hilt.viewModel = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02"
+hilt.common = "androidx.hilt:hilt-common:1.0.0-alpha02"
+hilt.compiler = "androidx.hilt:hilt-compiler:1.0.0"
+hilt.daggerCompiler = "com.google.dagger:hilt-compiler:2.40.5"
+hilt.navigation = "androidx.hilt:hilt-navigation-fragment:1.0.0"
+hilt.work = "androidx.hilt:hilt-work:1.0.0"
+ext.daggerHilt = hilt
