@@ -32,6 +32,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -40,6 +44,9 @@ dependencies {
     implementation androidx.appcompat
     implementation google.material
     implementation androidx.constraintlayout
+    implementation androidx.viewModel
+    implementation androidx.activityKtx
+    implementation androidx.fragmentKtx
 
     implementation retrofit.retrofit2
     implementation retrofit.convertergson
@@ -47,6 +54,8 @@ dependencies {
     implementation daggerHilt.android
     kapt daggerHilt.androidCompiler
     kapt daggerHilt.daggerCompiler
+
+    implementation lottie
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
