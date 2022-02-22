@@ -1,6 +1,6 @@
 package com.saba.gnbtrades.rate.repository
 
-import com.saba.gnbtrades.rate.models.Rate
+import com.saba.gnbtrades.rate.model.Rate
 
 interface RatesRepository {
 

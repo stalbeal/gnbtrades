@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Title.Large" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:textColor">@color/mine_shaft</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Title.Medium" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:textColor">@color/mine_shaft</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Title.Small" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:textColor">@color/mine_shaft</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+</resources>

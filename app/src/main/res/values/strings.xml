@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">GNBTrades</string>
-    <string name="transactions_title">Transactions</string>
-    <string name="transaction_identifier_title">Transaction Identifier</string>
     <string name="empty_case">-</string>
+    <string name="money">%s €</string>
+    <string name="transactions_title">Product</string>
+    <string name="transaction_identifier_title">Transaction Identifier</string>
+    <string name="transaction_detail_identifier_title">SKU %s</string>
+    <string name="transaction_detail_total_amount_title">Total %s €</string>
+    <string name="transaction_detail_amount_label">Amount</string>
+    <string name="transaction_sku_label">SKU</string>
+    <string name="transaction_quantity_label">Transaction quantity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

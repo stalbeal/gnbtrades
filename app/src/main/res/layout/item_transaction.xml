@@ -5,6 +5,7 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cvContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/space_large"
@@ -25,25 +26,49 @@
 
             <TextView
                 android:id="@+id/tvTransactionIdentifierTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/transaction_identifier_title"
+                android:text="@string/transactions_title"
+                android:theme="@style/Title.Medium"
+                app:layout_constraintEnd_toStartOf="@+id/tvTransactionQuantityLabel"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvSkuLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_small"
+                android:layout_marginTop="@dimen/space_medium"
+                android:theme="@style/Title.Medium"
+                android:text="@string/transaction_sku_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTransactionIdentifierTitle" />
 
             <TextView
                 android:id="@+id/tvTransactionIdentifier"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_medium"
                 android:layout_marginTop="@dimen/space_medium"
                 android:text="@string/empty_case"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvSkuLabel"
                 app:layout_constraintTop_toBottomOf="@id/tvTransactionIdentifierTitle" />
+
+            <TextView
+                android:id="@+id/tvTransactionQuantityLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/transaction_quantity_label"
+                android:theme="@style/Title.Medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvTransactionAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/space_small"
                 android:text="@string/empty_case"
                 app:layout_constraintBottom_toBottomOf="@id/tvTransactionIdentifier"
                 app:layout_constraintEnd_toEndOf="parent"

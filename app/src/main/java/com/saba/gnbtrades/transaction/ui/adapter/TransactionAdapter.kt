@@ -1,12 +1,14 @@
-package com.saba.gnbtrades.transaction.adapter
+package com.saba.gnbtrades.transaction.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.saba.gnbtrades.databinding.ItemTransactionBinding
-import com.saba.gnbtrades.transaction.model.Transaction
 
-class TransactionAdapter(private val transactions: List<TransactionItemView>) :
+class TransactionAdapter(
+    private val transactions: List<TransactionItemView>,
+    private val transactionListener: TransactionClickListener
+) :
     RecyclerView.Adapter<TransactionViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionViewHolder {
@@ -17,7 +19,7 @@ class TransactionAdapter(private val transactions: List<TransactionItemView>) :
     }
 
     override fun onBindViewHolder(holder: TransactionViewHolder, position: Int) {
-        holder.bind(transactions[position])
+        holder.bind(transactions[position], transactionListener)
     }
 
     override fun getItemCount(): Int = transactions.size

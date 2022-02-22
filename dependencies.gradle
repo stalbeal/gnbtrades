@@ -5,12 +5,15 @@ ext.retrofit = retrofit
 
 def androidx = [:]
 androidx.corektx = 'androidx.core:core-ktx:1.7.0'
+androidx.coreTesting = 'androidx.arch.core:core-testing:2.1.0'
 androidx.appcompat = 'androidx.appcompat:appcompat:1.4.1'
 androidx.constraintlayout = 'androidx.constraintlayout:constraintlayout:2.1.3'
 androidx.viewModel = 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
 androidx.activityKtx = 'androidx.activity:activity-ktx:1.4.0'
 androidx.fragmentKtx = 'androidx.fragment:fragment-ktx:1.4.1'
-
+androidx.navigationFragment = 'androidx.navigation:navigation-fragment-ktx:2.4.1'
+androidx.navigationUi = 'androidx.navigation:navigation-ui-ktx:2.4.1'
+androidx.navigationSafeArgs = 'androidx.navigation:navigation-safe-args-gradle-plugin2.4.1'
 ext.androidx = androidx
 
 def google = [:]
@@ -30,3 +33,8 @@ hilt.work = "androidx.hilt:hilt-work:1.0.0"
 ext.daggerHilt = hilt
 
 ext.lottie = 'com.airbnb.android:lottie:4.2.2'
+
+ext.mockk = "io.mockk:mockk:1.12.0"
+
+ext.coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0"
+
