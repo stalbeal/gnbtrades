@@ -2,8 +2,8 @@ package com.saba.gnbtrades
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.saba.gnbtrades.transaction.model.Transaction
-import com.saba.gnbtrades.transactiondetail.ui.ConvertCurrencyTransactionsAmountToEURUseCase
 import com.saba.gnbtrades.transactiondetail.ui.TransactionDetailViewModel
+import com.saba.gnbtrades.transactiondetail.usecase.ConvertCurrencyTransactionsAmountToEURUseCase
 import com.saba.gnbtrades.util.CoroutineDispatchers
 import com.saba.gnbtrades.util.getFormattedAmount
 import io.mockk.coEvery
@@ -55,7 +55,6 @@ class TransactionDetailViewModelTest {
     @Test
     fun `when viewmodel created it should get transaction amount in EUR`() = runTest {
 
-
         viewModel = TransactionDetailViewModel(
             "001",
             mockTransactions,
@@ -88,6 +87,5 @@ class TransactionDetailViewModelTest {
         }
 
         Assert.assertEquals(2, numberOfStatesEmitted)
-
     }
 }

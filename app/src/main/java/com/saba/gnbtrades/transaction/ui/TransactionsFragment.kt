@@ -25,17 +25,25 @@ class TransactionsFragment : Fragment(), TransactionClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.state.observe(requireActivity()) {
-            when {
-                it.loading -> showLoading()
-                it.viewTransactions != null -> setUpTransactions(it.viewTransactions)
-            }
-        }
+        observeViewModelState()
 
+        observeViewModelEnvents()
+    }
+
+    private fun observeViewModelEnvents() {
         viewModel.event.observe(requireActivity()) {
 
             when (val currentEvent = it?.getIfNotHandle()) {
                 is TransactionsViewModel.Event.ShowTransactionDetail -> openDetail(currentEvent)
+            }
+        }
+    }
+
+    private fun observeViewModelState() {
+        viewModel.state.observe(requireActivity()) {
+            when {
+                it.loading -> showLoading()
+                it.viewTransactions != null -> setUpTransactions(it.viewTransactions)
             }
         }
     }

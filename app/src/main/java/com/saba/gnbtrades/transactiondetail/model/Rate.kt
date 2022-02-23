@@ -1,4 +1,4 @@
-package com.saba.gnbtrades.rate.model
+package com.saba.gnbtrades.transactiondetail.model
 
 import com.saba.gnbtrades.Currency
 import java.math.BigDecimal

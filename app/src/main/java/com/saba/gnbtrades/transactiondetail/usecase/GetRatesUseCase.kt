@@ -1,8 +1,8 @@
-package com.saba.gnbtrades.rate.usecase
+package com.saba.gnbtrades.transactiondetail.usecase
 
 import com.saba.gnbtrades.Currency
-import com.saba.gnbtrades.rate.model.Rate
-import com.saba.gnbtrades.rate.repository.RatesRepository
+import com.saba.gnbtrades.transactiondetail.model.Rate
+import com.saba.gnbtrades.transactiondetail.repository.RatesRepository
 import javax.inject.Inject
 
 class GetRatesUseCase @Inject constructor(private val ratesRepository: RatesRepository) {

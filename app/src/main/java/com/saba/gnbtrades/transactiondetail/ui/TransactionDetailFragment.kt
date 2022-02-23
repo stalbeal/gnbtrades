@@ -43,6 +43,10 @@ class TransactionDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        observeViewModelState()
+    }
+
+    private fun observeViewModelState() {
         viewModel.state.observe(requireActivity()) {
             when {
                 it.loading -> showLoading()

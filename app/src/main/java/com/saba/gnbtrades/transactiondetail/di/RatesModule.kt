@@ -1,8 +1,8 @@
-package com.saba.gnbtrades.rate.di
+package com.saba.gnbtrades.transactiondetail.di
 
-import com.saba.gnbtrades.rate.network.ApiRateService
-import com.saba.gnbtrades.rate.repository.RatesRepository
-import com.saba.gnbtrades.rate.repository.RatesRepositoryImpl
+import com.saba.gnbtrades.transactiondetail.network.ApiRateService
+import com.saba.gnbtrades.transactiondetail.repository.RatesRepository
+import com.saba.gnbtrades.transactiondetail.repository.RatesRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable

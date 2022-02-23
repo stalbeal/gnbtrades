@@ -1,8 +1,8 @@
-package com.saba.gnbtrades.rate.repository
+package com.saba.gnbtrades.transactiondetail.repository
 
 import com.saba.gnbtrades.Currency
-import com.saba.gnbtrades.rate.model.Rate
-import com.saba.gnbtrades.rate.network.ApiRateService
+import com.saba.gnbtrades.transactiondetail.model.Rate
+import com.saba.gnbtrades.transactiondetail.network.ApiRateService
 import java.math.BigDecimal
 import javax.inject.Inject
 

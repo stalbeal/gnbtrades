@@ -1,9 +1,6 @@
 package com.saba.gnbtrades.di
 
 import com.saba.gnbtrades.network.HeaderInterceptor
-import com.saba.gnbtrades.rate.network.ApiRateResponse
-import com.saba.gnbtrades.rate.network.ApiRateService
-import com.saba.gnbtrades.transaction.network.ApiTransactionService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

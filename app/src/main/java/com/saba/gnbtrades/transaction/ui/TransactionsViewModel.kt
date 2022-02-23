@@ -9,7 +9,6 @@ import com.saba.gnbtrades.transaction.ui.adapter.TransactionItemView
 import com.saba.gnbtrades.transaction.usecase.GetTransactionUseCase
 import com.saba.gnbtrades.util.CoroutineDispatchers
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

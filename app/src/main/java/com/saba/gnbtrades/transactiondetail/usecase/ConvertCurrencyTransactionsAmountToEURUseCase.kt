@@ -1,9 +1,8 @@
-package com.saba.gnbtrades.transactiondetail.ui
+package com.saba.gnbtrades.transactiondetail.usecase
 
 import com.saba.gnbtrades.Currency
-import com.saba.gnbtrades.rate.model.Rate
-import com.saba.gnbtrades.rate.usecase.GetRatesUseCase
 import com.saba.gnbtrades.transaction.model.Transaction
+import com.saba.gnbtrades.transactiondetail.model.Rate
 import com.saba.gnbtrades.util.getFormattedAmount
 import javax.inject.Inject
 
@@ -13,9 +12,9 @@ class ConvertCurrencyTransactionsAmountToEURUseCase @Inject constructor(private 
         val rates = getRatesUseCase.execute()
         return transactions.map {
             if (it.currency != Currency.EUR) {
-                convertPath(
+                convertTransactionAmountToEURCurrency(
                     transaction = it,
-                    from = it.currency,
+                    fromCurrency = it.currency,
                     rates = rates
                 )
             } else {
@@ -25,15 +24,15 @@ class ConvertCurrencyTransactionsAmountToEURUseCase @Inject constructor(private 
         }
     }
 
-    private fun convertPath(
+    private fun convertTransactionAmountToEURCurrency(
         transaction: Transaction,
-        from: Currency,
+        fromCurrency: Currency,
         rates: Map<Currency, List<Rate>>
     ): Transaction {
-        val fromDestinations = getDestinationsForCurrencyOrigin(from, rates)
+        val fromCurrencyDestinations = getDestinationsForCurrencyOrigin(fromCurrency, rates)
 
-        if (fromDestinations.contains(Currency.EUR)) {
-            val destinationRate = rates[from]!!.first { it.to == Currency.EUR }
+        if (fromCurrencyDestinations.contains(Currency.EUR)) {
+            val destinationRate = rates[fromCurrency]!!.first { it.to == Currency.EUR }
 
             return transaction.copy(
                 amount = (transaction.amount * destinationRate.value).getFormattedAmount(),
@@ -41,9 +40,10 @@ class ConvertCurrencyTransactionsAmountToEURUseCase @Inject constructor(private 
             )
         }
 
-        val result = willPathLeadMeToEur(from, rates, mutableListOf())
+        val result = willPathLeadMeToEur(fromCurrency, rates, mutableListOf())
+
         if (result.isEmpty()) {
-            throw IllegalStateException("There are not routes for conversion from $from to ${Currency.EUR}")
+            throw IllegalStateException("There are not routes for conversion from $fromCurrency to ${Currency.EUR}")
         }
 
         var amount = transaction.amount
@@ -59,24 +59,24 @@ class ConvertCurrencyTransactionsAmountToEURUseCase @Inject constructor(private 
     }
 
     private fun willPathLeadMeToEur(
-        from: Currency,
+        fromCurrency: Currency,
         rates: Map<Currency, List<Rate>>,
-        x: MutableList<Rate>,
+        validRatesToConversion: MutableList<Rate>,
         previousCurrencyEvaluated: Currency? = null
     ): MutableList<Rate> {
-        if (rates[from]!!.count { it.to == Currency.EUR } > 0) {
-            return x.apply { add(rates[from]!!.first { it.to == Currency.EUR }) }
+        if (rates[fromCurrency]!!.count { it.to == Currency.EUR } > 0) {
+            return validRatesToConversion.apply { add(rates[fromCurrency]!!.first { it.to == Currency.EUR }) }
         }
 
 
-        for (rate in rates[from]!!) {
-            if (rate.to != previousCurrencyEvaluated && isWorth(rate.to, rates, from)) {
-                x.add(rate)
-                willPathLeadMeToEur(rate.to, rates, x, from)
+        for (rate in rates[fromCurrency]!!) {
+            if (rate.to != previousCurrencyEvaluated && isWorth(rate.to, rates, fromCurrency)) {
+                validRatesToConversion.add(rate)
+                willPathLeadMeToEur(rate.to, rates, validRatesToConversion, fromCurrency)
             }
         }
 
-        return x
+        return validRatesToConversion
     }
 
     private fun isWorth(
@@ -100,15 +100,6 @@ class ConvertCurrencyTransactionsAmountToEURUseCase @Inject constructor(private 
 
         return false
     }
-
-    /***
-     * AUD -> EUR
-     *
-     * AUD -> CAD, COP
-     * CAD -> COP, USD
-     * USD -> EUR, CAD
-     * COP -> CAD
-     */
 
     private fun getDestinationsForCurrencyOrigin(
         currency: Currency,

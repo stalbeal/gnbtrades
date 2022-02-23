@@ -1,4 +1,4 @@
-package com.saba.gnbtrades.rate.network
+package com.saba.gnbtrades.transactiondetail.network
 
 import retrofit2.http.GET
 

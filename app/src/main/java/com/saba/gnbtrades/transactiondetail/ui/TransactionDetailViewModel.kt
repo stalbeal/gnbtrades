@@ -1,11 +1,11 @@
 package com.saba.gnbtrades.transactiondetail.ui
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.saba.gnbtrades.transaction.model.Transaction
+import com.saba.gnbtrades.transactiondetail.usecase.ConvertCurrencyTransactionsAmountToEURUseCase
 import com.saba.gnbtrades.util.CoroutineDispatchers
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory

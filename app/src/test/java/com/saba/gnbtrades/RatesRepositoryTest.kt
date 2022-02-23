@@ -1,9 +1,9 @@
 package com.saba.gnbtrades
 
-import com.saba.gnbtrades.rate.model.Rate
-import com.saba.gnbtrades.rate.network.ApiRateResponse
-import com.saba.gnbtrades.rate.network.ApiRateService
-import com.saba.gnbtrades.rate.repository.RatesRepositoryImpl
+import com.saba.gnbtrades.transactiondetail.model.Rate
+import com.saba.gnbtrades.transactiondetail.network.ApiRateResponse
+import com.saba.gnbtrades.transactiondetail.network.ApiRateService
+import com.saba.gnbtrades.transactiondetail.repository.RatesRepositoryImpl
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk

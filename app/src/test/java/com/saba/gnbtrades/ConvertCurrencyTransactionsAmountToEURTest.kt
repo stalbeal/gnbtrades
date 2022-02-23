@@ -1,9 +1,9 @@
 package com.saba.gnbtrades
 
-import com.saba.gnbtrades.rate.model.Rate
-import com.saba.gnbtrades.rate.usecase.GetRatesUseCase
 import com.saba.gnbtrades.transaction.model.Transaction
-import com.saba.gnbtrades.transactiondetail.ui.ConvertCurrencyTransactionsAmountToEURUseCase
+import com.saba.gnbtrades.transactiondetail.model.Rate
+import com.saba.gnbtrades.transactiondetail.usecase.ConvertCurrencyTransactionsAmountToEURUseCase
+import com.saba.gnbtrades.transactiondetail.usecase.GetRatesUseCase
 import com.saba.gnbtrades.util.getFormattedAmount
 import io.mockk.coEvery
 import io.mockk.coVerify

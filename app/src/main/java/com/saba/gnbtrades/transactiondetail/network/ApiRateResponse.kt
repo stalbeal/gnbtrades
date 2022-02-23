@@ -1,7 +1,6 @@
-package com.saba.gnbtrades.rate.network
+package com.saba.gnbtrades.transactiondetail.network
 
 import com.google.gson.annotations.SerializedName
-import com.saba.gnbtrades.Currency
 
 data class ApiRateResponse(
     @SerializedName("from") val from: String,
